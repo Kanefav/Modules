@@ -33,3 +33,18 @@ def porcentagem(num):
     valor = int(input('Valor da porcentagem: '))
     num -= num * valor/100
     return num
+
+
+def moeda(moeda):
+    return f'{moeda:6.2f}' 
+    # O primeiro numero 5, é o total de caracteres que são formatados 
+    # para ficar no mesmo nível, exemplo (ex108.py)
+
+
+def elevado(num, VezesElevadas):
+    resultado = 0
+    numero = num
+    for c in range(0, VezesElevadas - 1):
+       resultado = num * numero
+       num = resultado
+    return resultado
