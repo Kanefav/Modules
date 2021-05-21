@@ -36,7 +36,7 @@ def subtrair(num, info=False):
         return num
     else:
         valor = float(input('Valor para subtrair: '))
-        num -= num
+        num -= valor 
         lista = [moeda(num), moeda(valor)]
         return lista
 
