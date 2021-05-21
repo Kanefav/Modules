@@ -7,27 +7,38 @@ def fatorial(n):
 # Funçoes para o Ex 107 
 
 
-def multiplicar(num):
+def multiplicar(num, format=False):
     num *= 2
-    return num
+    return num if format == False else moeda(num)
 
 
-def dividir(num):
+def dividir(num, format=False):
     num /= 2
-    return num
+    return num if format == False else moeda(num)
 
 
-def somar(num):
-    valor = int(input('Valor para somar: '))
-    num += valor 
-    return num
+def somar(num, info=False):
+    if info == False:
+        valor = int(input('Valor para somar: '))
+        num += valor 
+        return num
+    else:
+        valor = float(input('Valor para somar: '))
+        num += valor
+        lista = [moeda(num), moeda(valor)]
+        return lista
 
 
-def subtrair(num):
-    valor = int(input('Valor para subtrair: '))
-    num -= valor
-    return num
-
+def subtrair(num, info=False):
+    if info == False:
+        valor = int(input('Valor para subtrair: '))
+        num -= valor
+        return num
+    else:
+        valor = float(input('Valor para subtrair: '))
+        num -= num
+        lista = [moeda(num), moeda(valor)]
+        return lista
 
 def porcentagem(num):
     valor = int(input('Valor da porcentagem: '))
@@ -36,7 +47,7 @@ def porcentagem(num):
 
 
 def moeda(moeda):
-    return f'{moeda:6.2f}' 
+    return f'{moeda:5.2f}' 
     # O primeiro numero 5, é o total de caracteres que são formatados 
     # para ficar no mesmo nível, exemplo (ex108.py)
 
@@ -55,3 +66,17 @@ def elevado(num, VezesElevadas):
 def multiplicarr(valor, multiplicador, format=False):
     valor = valor * multiplicador
     return valor if format is False else moeda(valor)
+
+
+def resumo(valor):
+    SomaTemp = somar(valor, True)
+    SubtracaoTemp = subtrair(valor, True)
+    print('/-/'*6)
+
+    print('       Resumo de Valores')
+    print(f'A multiplicação de {valor} por 2 é {multiplicar(valor, True)}')
+    print(f'A divisão de {valor} por 2 é {dividir(valor, True)}')
+    print(f'O valor de {moeda(valor)} + {SomaTemp[1]} é igual a {SomaTemp[0]}')
+    print(f'O valor de {moeda(valor)} - {SubtracaoTemp[1]} é igual a {SubtracaoTemp[0]}')
+
+    print('/-/'*6)
