@@ -48,3 +48,10 @@ def elevado(num, VezesElevadas):
        resultado = num * numero
        num = resultado
     return resultado
+
+
+# função para o ex 109 
+# ela devolve a valor formatado dependendo do que for mandado
+def multiplicarr(valor, multiplicador, format=False):
+    valor = valor * multiplicador
+    return valor if format is False else moeda(valor)
