@@ -1,3 +1,7 @@
+import PacoteUteis
+from PacoteUteis import Moeda
+
+
 def fatorial(n):
     f = 1
     for c in range(1, n+1):
@@ -19,11 +23,11 @@ def dividir(num, format=False):
 
 def somar(num, info=False):
     if info == False:
-        valor = int(input('Valor para somar: '))
+        valor = float(input('Valor para somar: '))
         num += valor 
         return num
     else:
-        valor = float(input('Valor para somar: '))
+        valor = Moeda.ValidarMoeda('Valor para somar:')
         num += valor
         lista = [moeda(num), moeda(valor)]
         return lista
@@ -31,11 +35,11 @@ def somar(num, info=False):
 
 def subtrair(num, info=False):
     if info == False:
-        valor = int(input('Valor para subtrair: '))
+        valor = float(input('Valor para subtrair: '))
         num -= valor
         return num
     else:
-        valor = float(input('Valor para subtrair: '))
+        valor = Moeda.ValidarMoeda('Valor para somar:')
         num -= valor 
         lista = [moeda(num), moeda(valor)]
         return lista
@@ -79,4 +83,11 @@ def resumo(valor):
     print(f'O valor de {moeda(valor)} + {SomaTemp[1]} é igual a {SomaTemp[0]}')
     print(f'O valor de {moeda(valor)} - {SubtracaoTemp[1]} é igual a {SubtracaoTemp[0]}')
 
-    print('/-/'*6)
+    print('/-/'*6)   
+
+
+def dolar(real):
+    ValorDolar = 5.26
+    ValorReal = real
+    ValorReal /= ValorDolar
+    return f'{moeda(real)} Reais Valem {moeda(ValorReal)} Dolares'
