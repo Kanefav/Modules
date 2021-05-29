@@ -41,3 +41,4 @@ else:
     print(f'O número digitado foi {num}')
 finally:
     print('finally sempre é executado ao final')
+input('Press enter to finish')
