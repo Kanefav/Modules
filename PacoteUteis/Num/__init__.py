@@ -91,3 +91,28 @@ def dolar(real):
     ValorReal = real
     ValorReal /= ValorDolar
     return f'{moeda(real)} Reais Valem {moeda(ValorReal)} Dolares'
+
+
+def leiaint(num):
+    while True:
+        numero = str(input(num))
+        try:
+            int(numero)
+        except:
+            print('Erro')
+        else:
+            num = [numero]
+            break
+    MaisNumReal = str(input('Quer informar + um número real? [S/N]: ')).lower()
+    if MaisNumReal in 'ssim':
+        while True:
+            NumReal = str(input('Número real: ')).replace(",", ".")
+            try:
+                float(NumReal)
+            except:
+                print('Não é real')
+            else:
+                num = [numero, NumReal]
+                return print(f'O Número foi {num[0]} e o real foi {num[1]}')
+    else:
+        return print(f'O Número foi {num[0]}')
